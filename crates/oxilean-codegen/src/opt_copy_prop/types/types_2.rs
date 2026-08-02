@@ -455,8 +455,10 @@ impl InterferenceGraph {
     pub fn report(&self) -> String {
         format!(
             "InterferenceGraph: {} vars, {} interference edges, {} copy edges, {} coalesc. candidates",
-            self.num_vars(), self.num_interference_edges(), self.num_copy_edges(), self
-            .coalescing_candidates().len()
+            self.num_vars(),
+            self.num_interference_edges(),
+            self.num_copy_edges(),
+            self.coalescing_candidates().len()
         )
     }
 }

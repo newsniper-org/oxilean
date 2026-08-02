@@ -49,11 +49,7 @@ pub(super) fn sanitize_scala_ident(name: &str) -> String {
             }
         })
         .collect();
-    if s.is_empty() {
-        "fn_".to_string()
-    } else {
-        s
-    }
+    if s.is_empty() { "fn_".to_string() } else { s }
 }
 #[cfg(test)]
 mod tests {

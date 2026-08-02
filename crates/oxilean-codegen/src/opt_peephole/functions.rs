@@ -314,9 +314,11 @@ mod tests {
     #[test]
     fn test_standard_rules_contains_store_load() {
         let rules = standard_rules();
-        assert!(rules
-            .iter()
-            .any(|r| r.pattern.name == "store_load_elim_pattern"));
+        assert!(
+            rules
+                .iter()
+                .any(|r| r.pattern.name == "store_load_elim_pattern")
+        );
     }
 
     // ── apply_rule ────────────────────────────────────────────────────────────
@@ -481,9 +483,11 @@ mod tests {
         let instrs = vec![load("x"), const_(0), PeepInstr::Add];
         let result = run_peephole(instrs, &rules);
         assert!(!result.rules_applied.is_empty());
-        assert!(result
-            .rules_applied
-            .contains(&"add_zero_pattern".to_string()));
+        assert!(
+            result
+                .rules_applied
+                .contains(&"add_zero_pattern".to_string())
+        );
     }
 
     #[test]

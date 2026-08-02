@@ -145,12 +145,14 @@ mod tests {
         assert!(NativeInst::Br { target: BlockId(0) }.is_terminator());
         assert!(NativeInst::Ret { value: None }.is_terminator());
         assert!(!NativeInst::Nop.is_terminator());
-        assert!(!NativeInst::LoadImm {
-            dst: Register::virt(0),
-            ty: NativeType::I64,
-            value: 0
-        }
-        .is_terminator());
+        assert!(
+            !NativeInst::LoadImm {
+                dst: Register::virt(0),
+                ty: NativeType::I64,
+                value: 0
+            }
+            .is_terminator()
+        );
     }
     #[test]
     pub(super) fn test_inst_dst_reg() {

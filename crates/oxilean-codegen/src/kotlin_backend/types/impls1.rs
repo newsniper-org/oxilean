@@ -322,11 +322,7 @@ impl KotlinExtDepGraph {
                 }
             }
         }
-        if out.len() == self.n {
-            Some(out)
-        } else {
-            None
-        }
+        if out.len() == self.n { Some(out) } else { None }
     }
     #[allow(dead_code)]
     pub fn has_cycle(&self) -> bool {

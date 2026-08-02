@@ -18,9 +18,13 @@ impl fmt::Display for CEmitStats {
         write!(
             f,
             "CEmitStats {{ fns={}, structs={}, rc_inc={}, rc_dec={}, closures={}, switches={}, lines={} }}",
-            self.functions_emitted, self.structs_emitted, self.rc_inc_calls, self
-            .rc_dec_calls, self.closures_emitted, self.switches_emitted, self
-            .total_lines,
+            self.functions_emitted,
+            self.structs_emitted,
+            self.rc_inc_calls,
+            self.rc_dec_calls,
+            self.closures_emitted,
+            self.switches_emitted,
+            self.total_lines,
         )
     }
 }

@@ -16,8 +16,11 @@ impl std::fmt::Display for CtfeCodeStats {
         write!(
             f,
             "CtfeCodeStats {{ constants={}, folds={}, calls_elim={}, loops_unrolled={}, conditions={} }}",
-            self.constants_discovered, self.folds_applied, self.calls_eliminated, self
-            .loops_unrolled, self.conditions_resolved,
+            self.constants_discovered,
+            self.folds_applied,
+            self.calls_eliminated,
+            self.loops_unrolled,
+            self.conditions_resolved,
         )
     }
 }

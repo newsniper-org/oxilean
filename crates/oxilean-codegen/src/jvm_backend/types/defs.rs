@@ -1,5 +1,5 @@
-use super::super::functions::access_flags;
 use super::super::functions::JvmResult;
+use super::super::functions::access_flags;
 use crate::lcnf::*;
 use std::collections::HashMap;
 use std::collections::{HashSet, VecDeque};

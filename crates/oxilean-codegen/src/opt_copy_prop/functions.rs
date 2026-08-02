@@ -387,11 +387,7 @@ pub(super) fn max_var_id_in_expr(expr: &LcnfExpr) -> u64 {
 }
 
 pub(super) fn max_var_id_in_arg(arg: &LcnfArg) -> u64 {
-    if let LcnfArg::Var(id) = arg {
-        id.0
-    } else {
-        0
-    }
+    if let LcnfArg::Var(id) = arg { id.0 } else { 0 }
 }
 
 pub(super) fn max_var_id_in_let_value(val: &LcnfLetValue) -> u64 {

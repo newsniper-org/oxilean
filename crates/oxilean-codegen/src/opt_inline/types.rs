@@ -1561,8 +1561,10 @@ impl InterproceduralInlinePass {
     pub fn report(&self) -> String {
         format!(
             "InterproceduralInlinePass: {} functions processed, {} always-inlined, budget_used={}/{}",
-            self.stats.always_inline_count, self.stats.always_inline_count,
-            self.budget.consumed, self.budget.total_budget,
+            self.stats.always_inline_count,
+            self.stats.always_inline_count,
+            self.budget.consumed,
+            self.budget.total_budget,
         )
     }
 }

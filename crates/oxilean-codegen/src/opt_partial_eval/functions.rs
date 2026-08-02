@@ -111,9 +111,11 @@ mod tests {
     #[test]
     pub(super) fn test_partial_value_display() {
         assert!(PartialValue::Unknown.display().contains("Unknown"));
-        assert!(PartialValue::Contradiction
-            .display()
-            .contains("Contradiction"));
+        assert!(
+            PartialValue::Contradiction
+                .display()
+                .contains("Contradiction")
+        );
     }
     #[test]
     pub(super) fn test_binding_env_lookup_unknown_default() {

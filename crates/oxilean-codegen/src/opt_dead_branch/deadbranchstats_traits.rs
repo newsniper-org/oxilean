@@ -16,8 +16,11 @@ impl fmt::Display for DeadBranchStats {
         write!(
             f,
             "Stats {{ cases={}, ctor_matches={}, unreach_defaults={}, single_inlines={}, uniform={} }}",
-            self.cases_analyzed, self.known_ctor_matches, self.unreachable_defaults, self
-            .single_branch_inlines, self.uniform_folds,
+            self.cases_analyzed,
+            self.known_ctor_matches,
+            self.unreachable_defaults,
+            self.single_branch_inlines,
+            self.uniform_folds,
         )
     }
 }

@@ -635,11 +635,7 @@ impl FSharpBackend {
                 | FSharpExpr::Pipe(_, _)
         );
         let s = self.emit_expr(expr, depth);
-        if needs_parens {
-            format!("({})", s)
-        } else {
-            s
-        }
+        if needs_parens { format!("({})", s) } else { s }
     }
     /// Emit a record type declaration.
     pub fn emit_record(&self, rec: &FSharpRecord) -> String {

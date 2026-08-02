@@ -89,9 +89,11 @@ mod tests {
             Box::new(MetalExpr::Var("counter".into())),
             Box::new(MetalExpr::LitInt(1)),
         );
-        assert!(backend
-            .emit_expr(&atom)
-            .contains("atomic_fetch_add_explicit"));
+        assert!(
+            backend
+                .emit_expr(&atom)
+                .contains("atomic_fetch_add_explicit")
+        );
         assert!(backend.emit_expr(&atom).contains("memory_order_relaxed"));
         let bitcast = MetalExpr::AsType(MetalType::Uint, Box::new(MetalExpr::Var("f".into())));
         assert!(backend.emit_expr(&bitcast).contains("as_type<uint>"));
@@ -236,14 +238,18 @@ mod tests {
     #[test]
     pub(super) fn test_builtin_attributes_and_simd() {
         let backend = MetalBackend::new();
-        assert!(MetalBuiltin::ThreadPositionInGrid
-            .attribute()
-            .contains("thread_position_in_grid"));
+        assert!(
+            MetalBuiltin::ThreadPositionInGrid
+                .attribute()
+                .contains("thread_position_in_grid")
+        );
         assert!(MetalBuiltin::VertexId.attribute().contains("vertex_id"));
         assert!(MetalBuiltin::Position.attribute().contains("position"));
-        assert!(MetalBuiltin::FrontFacing
-            .attribute()
-            .contains("front_facing"));
+        assert!(
+            MetalBuiltin::FrontFacing
+                .attribute()
+                .contains("front_facing")
+        );
         assert!(MetalBuiltin::Depth.attribute().contains("depth"));
         assert_eq!(MetalBuiltin::Position.metal_type(), MetalType::Float4);
         assert_eq!(MetalBuiltin::FrontFacing.metal_type(), MetalType::Bool);

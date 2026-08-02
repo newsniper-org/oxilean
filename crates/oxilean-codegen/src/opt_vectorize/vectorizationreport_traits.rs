@@ -16,8 +16,12 @@ impl fmt::Display for VectorizationReport {
         write!(
             f,
             "VectorizationReport {{ analyzed={}, vectorized={}, rejected=(dep={}, trip={}, other={}), avg_speedup={:.2}x }}",
-            self.loops_analyzed, self.loops_vectorized, self.rejected_dep, self
-            .rejected_trip_count, self.rejected_other, self.avg_estimated_speedup,
+            self.loops_analyzed,
+            self.loops_vectorized,
+            self.rejected_dep,
+            self.rejected_trip_count,
+            self.rejected_other,
+            self.avg_estimated_speedup,
         )
     }
 }

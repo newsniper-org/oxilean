@@ -4,15 +4,15 @@
 
 use super::defs::*;
 use super::impls2::*;
+use crate::CodegenTarget;
 use crate::c_backend::{self, CEmitConfig, COutput};
 use crate::closure_convert::{ClosureConvertConfig, ClosureConverter};
 use crate::lcnf::*;
 use crate::native_backend::{self, NativeEmitConfig, NativeModule};
 use crate::opt_dce::{self, DceConfig};
 use crate::to_lcnf::{self, ToLcnfConfig};
-use crate::CodegenTarget;
-use oxilean_kernel::expr::Expr;
 use oxilean_kernel::Name;
+use oxilean_kernel::expr::Expr;
 
 use super::super::functions::LcnfDeclInput;
 
@@ -221,11 +221,7 @@ impl PipeConstantFoldingHelper {
     }
     #[allow(dead_code)]
     pub fn fold_div_i64(a: i64, b: i64) -> Option<i64> {
-        if b == 0 {
-            None
-        } else {
-            a.checked_div(b)
-        }
+        if b == 0 { None } else { a.checked_div(b) }
     }
     #[allow(dead_code)]
     pub fn fold_add_f64(a: f64, b: f64) -> f64 {
@@ -261,11 +257,7 @@ impl PipeConstantFoldingHelper {
     }
     #[allow(dead_code)]
     pub fn fold_rem_i64(a: i64, b: i64) -> Option<i64> {
-        if b == 0 {
-            None
-        } else {
-            Some(a % b)
-        }
+        if b == 0 { None } else { Some(a % b) }
     }
     #[allow(dead_code)]
     pub fn fold_bitand_i64(a: i64, b: i64) -> i64 {

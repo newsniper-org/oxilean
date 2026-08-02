@@ -102,9 +102,11 @@ mod tests {
         let ret = CudaStmt::Return(Some(CudaExpr::LitInt(0)));
         assert_eq!(backend.emit_stmt(&ret, 0), "return 0;");
         let sync = CudaStmt::DeviceSync;
-        assert!(backend
-            .emit_stmt(&sync, 0)
-            .contains("cudaDeviceSynchronize"));
+        assert!(
+            backend
+                .emit_stmt(&sync, 0)
+                .contains("cudaDeviceSynchronize")
+        );
     }
     #[test]
     pub(super) fn test_kernel_emit() {

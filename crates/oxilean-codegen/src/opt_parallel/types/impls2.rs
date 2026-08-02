@@ -253,11 +253,7 @@ impl OParExtDepGraph {
                 }
             }
         }
-        if out.len() == self.n {
-            Some(out)
-        } else {
-            None
-        }
+        if out.len() == self.n { Some(out) } else { None }
     }
     #[allow(dead_code)]
     pub fn has_cycle(&self) -> bool {
@@ -575,11 +571,7 @@ impl ParConstantFoldingHelper {
     }
     #[allow(dead_code)]
     pub fn fold_div_i64(a: i64, b: i64) -> Option<i64> {
-        if b == 0 {
-            None
-        } else {
-            a.checked_div(b)
-        }
+        if b == 0 { None } else { a.checked_div(b) }
     }
     #[allow(dead_code)]
     pub fn fold_add_f64(a: f64, b: f64) -> f64 {
@@ -615,11 +607,7 @@ impl ParConstantFoldingHelper {
     }
     #[allow(dead_code)]
     pub fn fold_rem_i64(a: i64, b: i64) -> Option<i64> {
-        if b == 0 {
-            None
-        } else {
-            Some(a % b)
-        }
+        if b == 0 { None } else { Some(a % b) }
     }
     #[allow(dead_code)]
     pub fn fold_bitand_i64(a: i64, b: i64) -> i64 {

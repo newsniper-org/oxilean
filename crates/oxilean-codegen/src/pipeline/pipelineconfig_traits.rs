@@ -8,8 +8,8 @@
 //!
 //! 🤖 Generated with [SplitRS](https://github.com/cool-japan/splitrs)
 
-use crate::lcnf::*;
 use crate::CodegenTarget;
+use crate::lcnf::*;
 
 use super::types::{OptLevel, PipelineConfig};
 

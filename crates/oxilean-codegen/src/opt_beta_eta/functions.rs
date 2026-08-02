@@ -1690,9 +1690,11 @@ mod extended_tests {
             LcnfExpr::Return(LcnfArg::Var(var(0))),
         );
         let hints = collect_hints(&decl);
-        assert!(hints
-            .iter()
-            .any(|h| matches!(h, OptHint::InlineCandidate { .. })));
+        assert!(
+            hints
+                .iter()
+                .any(|h| matches!(h, OptHint::InlineCandidate { .. }))
+        );
     }
     #[test]
     pub(super) fn test_pp_expr_return() {

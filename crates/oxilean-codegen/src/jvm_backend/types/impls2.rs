@@ -1,5 +1,5 @@
-use super::super::functions::access_flags;
 use super::super::functions::JvmResult;
+use super::super::functions::access_flags;
 use crate::lcnf::*;
 use std::collections::HashMap;
 use std::collections::{HashSet, VecDeque};
@@ -482,11 +482,7 @@ impl JVMExtDepGraph {
                 }
             }
         }
-        if out.len() == self.n {
-            Some(out)
-        } else {
-            None
-        }
+        if out.len() == self.n { Some(out) } else { None }
     }
     #[allow(dead_code)]
     pub fn has_cycle(&self) -> bool {

@@ -18,8 +18,12 @@ impl fmt::Display for ClosureConvertStats {
         write!(
             f,
             "ClosureConvertStats {{ converted={}, lifted={}, defunc={}, stack={}, heap={}, merged={} }}",
-            self.closures_converted, self.helpers_lifted, self.defunctionalized, self
-            .stack_allocated, self.heap_allocated, self.closures_merged,
+            self.closures_converted,
+            self.helpers_lifted,
+            self.defunctionalized,
+            self.stack_allocated,
+            self.heap_allocated,
+            self.closures_merged,
         )
     }
 }

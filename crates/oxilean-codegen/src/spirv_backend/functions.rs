@@ -136,10 +136,12 @@ mod tests {
     pub(super) fn test_spirv_backend_configure_vulkan() {
         let mut backend = SpirVBackend::new();
         backend.configure_for_vulkan();
-        assert!(backend
-            .module
-            .capabilities
-            .contains(&SpirVCapability::Shader));
+        assert!(
+            backend
+                .module
+                .capabilities
+                .contains(&SpirVCapability::Shader)
+        );
         assert_eq!(backend.module.memory_model.1, MemoryModel::GLSL450);
         assert!(backend.glsl_ext_id.is_some());
     }

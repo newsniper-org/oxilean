@@ -1446,9 +1446,15 @@ impl CraneliftCodeMetrics {
     pub fn summary(&self) -> String {
         format!(
             "blocks={} total_instrs={} values={} voids={} params={} calls={} loads={} stores={} branches={}",
-            self.num_blocks, self.total_instructions, self.num_value_instructions, self
-            .num_void_instructions, self.total_block_params, self.num_calls, self
-            .num_loads, self.num_stores, self.num_branches,
+            self.num_blocks,
+            self.total_instructions,
+            self.num_value_instructions,
+            self.num_void_instructions,
+            self.total_block_params,
+            self.num_calls,
+            self.num_loads,
+            self.num_stores,
+            self.num_branches,
         )
     }
 }

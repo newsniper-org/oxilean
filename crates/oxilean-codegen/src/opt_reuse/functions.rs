@@ -371,10 +371,12 @@ mod tests {
         let decl = make_decl("test", vec![], body);
         let mut analyzer = ReuseAnalyzer::new(ReuseConfig::default());
         analyzer.analyze_decl(&decl);
-        assert!(analyzer
-            .rc_eliminations
-            .iter()
-            .any(|e| e.var == make_var(1)));
+        assert!(
+            analyzer
+                .rc_eliminations
+                .iter()
+                .any(|e| e.var == make_var(1))
+        );
     }
     #[test]
     pub(super) fn test_optimize_reuse_empty() {

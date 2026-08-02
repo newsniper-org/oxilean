@@ -196,11 +196,7 @@ impl DBConstantFoldingHelper {
     }
     #[allow(dead_code)]
     pub fn fold_div_i64(a: i64, b: i64) -> Option<i64> {
-        if b == 0 {
-            None
-        } else {
-            a.checked_div(b)
-        }
+        if b == 0 { None } else { a.checked_div(b) }
     }
     #[allow(dead_code)]
     pub fn fold_add_f64(a: f64, b: f64) -> f64 {
@@ -236,11 +232,7 @@ impl DBConstantFoldingHelper {
     }
     #[allow(dead_code)]
     pub fn fold_rem_i64(a: i64, b: i64) -> Option<i64> {
-        if b == 0 {
-            None
-        } else {
-            Some(a % b)
-        }
+        if b == 0 { None } else { Some(a % b) }
     }
     #[allow(dead_code)]
     pub fn fold_bitand_i64(a: i64, b: i64) -> i64 {
@@ -290,11 +282,7 @@ impl BranchProbabilityEstimator {
         if let Some(&p) = self.overrides.get(&key) {
             return p;
         }
-        if tag == 0 {
-            0.15
-        } else {
-            0.85
-        }
+        if tag == 0 { 0.15 } else { 0.85 }
     }
     /// Estimate all probabilities for a set of constructors, ensuring they sum to 1.
     #[allow(dead_code)]
@@ -903,7 +891,9 @@ impl DeadBranchAggregator {
     pub fn summary(&self) -> String {
         format!(
             "DeadBranchAggregate{{ units={}, arms_eliminated={}, cases_folded={}, uniform_returns={} }}",
-            self.unit_count(), self.total_arms_eliminated(), self.total_cases_folded(),
+            self.unit_count(),
+            self.total_arms_eliminated(),
+            self.total_cases_folded(),
             self.total_uniform_returns()
         )
     }

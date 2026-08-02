@@ -45,11 +45,7 @@ pub fn count_var_refs(expr: &LcnfExpr, target: LcnfVarId) -> usize {
         }
         LcnfExpr::Return(arg) | LcnfExpr::TailCall(arg, _) => {
             if let crate::lcnf::LcnfArg::Var(id) = arg {
-                if *id == target {
-                    1
-                } else {
-                    0
-                }
+                if *id == target { 1 } else { 0 }
             } else {
                 0
             }

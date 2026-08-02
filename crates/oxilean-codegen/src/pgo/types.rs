@@ -1496,11 +1496,7 @@ impl MemoryAccessPattern {
     }
     #[allow(dead_code)]
     pub fn prefetch_distance(&self) -> i64 {
-        if self.is_sequential {
-            8
-        } else {
-            0
-        }
+        if self.is_sequential { 8 } else { 0 }
     }
 }
 #[allow(dead_code)]

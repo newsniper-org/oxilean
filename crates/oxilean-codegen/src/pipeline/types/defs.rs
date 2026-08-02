@@ -2,15 +2,15 @@
 //!
 //! 🤖 Generated with [SplitRS](https://github.com/cool-japan/splitrs)
 
+use crate::CodegenTarget;
 use crate::c_backend::{self, CEmitConfig, COutput};
 use crate::closure_convert::{ClosureConvertConfig, ClosureConverter};
 use crate::lcnf::*;
 use crate::native_backend::{self, NativeEmitConfig, NativeModule};
 use crate::opt_dce::{self, DceConfig};
 use crate::to_lcnf::{self, ToLcnfConfig};
-use crate::CodegenTarget;
-use oxilean_kernel::expr::Expr;
 use oxilean_kernel::Name;
+use oxilean_kernel::expr::Expr;
 
 use super::super::functions::LcnfDeclInput;
 use super::impls1::*;
@@ -286,11 +286,7 @@ impl PipeX2DepGraph {
                 }
             }
         }
-        if out.len() == self.n {
-            Some(out)
-        } else {
-            None
-        }
+        if out.len() == self.n { Some(out) } else { None }
     }
     #[allow(dead_code)]
     pub fn has_cycle(&self) -> bool {

@@ -1514,8 +1514,13 @@ impl IdrisModuleMetrics {
     pub fn summary(&self) -> String {
         format!(
             "functions={} data_types={} records={} imports={} total_clauses={} mutual_blocks={} pragmas={}",
-            self.num_functions, self.num_data_types, self.num_records, self.num_imports,
-            self.total_clauses, self.num_mutual_blocks, self.num_pragmas,
+            self.num_functions,
+            self.num_data_types,
+            self.num_records,
+            self.num_imports,
+            self.total_clauses,
+            self.num_mutual_blocks,
+            self.num_pragmas,
         )
     }
 }

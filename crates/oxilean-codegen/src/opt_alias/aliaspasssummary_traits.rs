@@ -16,8 +16,12 @@ impl std::fmt::Display for AliasPassSummary {
         write!(
             f,
             "AliasPassSummary[{}] {{ funcs={}, queries={}, must_alias={:.1}%, no_alias={:.1}%, {}us }}",
-            self.pass_name, self.functions_analyzed, self.queries_answered, self
-            .must_alias_rate * 100.0, self.no_alias_rate * 100.0, self.duration_us,
+            self.pass_name,
+            self.functions_analyzed,
+            self.queries_answered,
+            self.must_alias_rate * 100.0,
+            self.no_alias_rate * 100.0,
+            self.duration_us,
         )
     }
 }

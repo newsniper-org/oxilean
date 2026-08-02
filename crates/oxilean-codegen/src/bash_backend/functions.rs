@@ -521,7 +521,8 @@ pub fn emit_bash_join(arr_var: &str, delim: &str, result_var: &str) -> std::stri
 pub fn emit_bash_trim(var: &str, result_var: &str) -> std::string::String {
     format!(
         "{var}=\"${{${{{var}}}##*( )}}\"  # trim leading\n{result_var}=\"${{${{{var}}}%%*( )}}\"  # trim trailing\n",
-        var = var, result_var = result_var
+        var = var,
+        result_var = result_var
     )
 }
 /// Generate bash code to URL-encode a string.
@@ -529,7 +530,8 @@ pub fn emit_bash_trim(var: &str, result_var: &str) -> std::string::String {
 pub fn emit_bash_url_encode(var: &str, result_var: &str) -> std::string::String {
     format!(
         "{result}=$(printf '%s' \"${{{var}}}\" | jq -Rr @uri 2>/dev/null || python3 -c \"import sys,urllib.parse; print(urllib.parse.quote(sys.stdin.read().rstrip()))\" <<< \"${{{var}}}\")\n",
-        var = var, result = result_var
+        var = var,
+        result = result_var
     )
 }
 /// Generate bash code to check if a command exists.
@@ -568,7 +570,8 @@ pub fn emit_bash_read_env(file_path: &str) -> std::string::String {
 pub fn emit_bash_lock(lock_file: &str, lock_fd_var: &str) -> std::string::String {
     format!(
         "exec {fd}<>\"{file}\"\nflock -n ${fd} || {{ echo \"Another instance is running\" >&2; exit 1; }}\n",
-        fd = lock_fd_var, file = lock_file
+        fd = lock_fd_var,
+        file = lock_file
     )
 }
 /// Emits bash code to release a lock file.
@@ -581,7 +584,8 @@ pub fn emit_bash_unlock(lock_fd_var: &str) -> std::string::String {
 pub fn emit_bash_retry_fn(max_attempts: u8, delay_secs: u8) -> std::string::String {
     format!(
         "retry() {{\n  local _attempt=1\n  until \"$@\"; do\n    _attempt=$(( _attempt + 1 ))\n    if [[ $_attempt -gt {max} ]]; then\n      echo \"Command failed after {max} attempts\" >&2\n      return 1\n    fi\n    echo \"Attempt $_attempt of {max} failed, retrying in {delay}s...\" >&2\n    sleep {delay}\n  done\n}}\n",
-        max = max_attempts, delay = delay_secs
+        max = max_attempts,
+        delay = delay_secs
     )
 }
 /// Emits a bash progress bar function.
@@ -601,7 +605,9 @@ pub fn emit_bash_http_get(
 ) -> std::string::String {
     format!(
         "{result}=$(curl -fsSL --max-time {timeout} \"${{{url}}}\" 2>/dev/null)\nif [[ $? -ne 0 ]]; then\n  echo \"HTTP GET failed for ${{url}}\" >&2\n  exit 1\nfi\n",
-        result = result_var, timeout = _timeout_secs, url = url_var
+        result = result_var,
+        timeout = _timeout_secs,
+        url = url_var
     )
 }
 /// Emits bash code to make an HTTP POST request with JSON.
@@ -614,7 +620,10 @@ pub fn emit_bash_http_post_json(
 ) -> std::string::String {
     format!(
         "{result}=$(curl -fsSL --max-time {timeout} -X POST -H 'Content-Type: application/json' -d \"${{{body}}}\" \"${{{url}}}\" 2>/dev/null)\n",
-        result = result_var, timeout = _timeout_secs, body = body_var, url = url_var
+        result = result_var,
+        timeout = _timeout_secs,
+        body = body_var,
+        url = url_var
     )
 }
 /// Emit a C-style for loop.

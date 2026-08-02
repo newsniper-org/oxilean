@@ -204,8 +204,10 @@ impl GQLDataloader {
     pub fn emit_ts_loader(&self) -> String {
         format!(
             "const {}Loader = new DataLoader<string, {}>(\n  async (ids) => load{}ByIds(ids),\n  {{ maxBatchSize: {} }}\n);",
-            self.entity_type.to_lowercase(), self.entity_type, self.entity_type, self
-            .batch_size
+            self.entity_type.to_lowercase(),
+            self.entity_type,
+            self.entity_type,
+            self.batch_size
         )
     }
 }

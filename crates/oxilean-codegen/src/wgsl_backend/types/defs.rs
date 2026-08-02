@@ -1001,9 +1001,15 @@ impl WGSLCodeMetrics {
     pub fn summary(&self) -> String {
         format!(
             "functions={} entry_points={} structs={} bindings={} globals={} constants={} overrides={} statements={} enables={}",
-            self.num_functions, self.num_entry_points, self.num_structs, self
-            .num_bindings, self.num_globals, self.num_constants, self.num_overrides, self
-            .total_statements, self.num_enables,
+            self.num_functions,
+            self.num_entry_points,
+            self.num_structs,
+            self.num_bindings,
+            self.num_globals,
+            self.num_constants,
+            self.num_overrides,
+            self.total_statements,
+            self.num_enables,
         )
     }
 }
