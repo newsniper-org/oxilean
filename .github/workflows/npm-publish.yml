@@ -1,5 +1,5 @@
 # npm Publishing Workflow for OxiLean WASM bindings
-# Builds and publishes @newsniper-org/oxilean to npm using wasm-pack
+# Builds and publishes @cooljapan/oxilean to npm using wasm-pack
 
 name: npm Publish
 
@@ -27,8 +27,8 @@ on:
 env:
   CARGO_TERM_COLOR: always
   WASM_PACK_VERSION: "0.13.1"
-  SCOPE: "newsniper-org"
-  NPM_PACKAGE: "@newsniper-org/oxilean"
+  SCOPE: "cooljapan"
+  NPM_PACKAGE: "@cooljapan/oxilean"
 
 jobs:
   build:
@@ -113,7 +113,7 @@ jobs:
             fi
           done
 
-      - name: Rename packages to @newsniper-org/oxilean
+      - name: Rename packages to @cooljapan/oxilean
         working-directory: crates/oxilean-wasm
         run: |
           for dir in pkg-bundler pkg-web pkg-node; do
